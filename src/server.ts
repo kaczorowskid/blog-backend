@@ -11,7 +11,8 @@ import { isEmptyString } from "./utils";
 if (
   isEmptyString(process.env.ENVIRONMENT) ||
   isEmptyString(process.env.FRONTEND_URL_ORIGIN_DEV) ||
-  isEmptyString(process.env.FRONTEND_URL_ORIGIN_PROD)
+  isEmptyString(process.env.FRONTEND_URL_ORIGIN_PROD) ||
+  isEmptyString(process.env.PORT)
 ) {
   throw new Error("Invalid .env config");
 }
@@ -22,7 +23,7 @@ const origin =
     : process.env.FRONTEND_URL_ORIGIN_PROD;
 
 const app = express();
-const PORT = 4200;
+const PORT = process.env.PORT || 4200;
 
 connectToDatbase();
 
