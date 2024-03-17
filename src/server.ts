@@ -3,7 +3,6 @@ dotenv.config();
 
 import express from "express";
 import cors from "cors";
-import cookieParser from "cookie-parser";
 import { articleRouter } from "./routes";
 import { connectToDatbase } from "./database";
 import { isEmptyString } from "./utils";
@@ -30,7 +29,6 @@ connectToDatbase();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin, credentials: true }));
-app.use(cookieParser());
 
 app.use("/articles", articleRouter);
 
