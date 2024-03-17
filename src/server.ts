@@ -22,7 +22,7 @@ const origin =
     : process.env.FRONTEND_URL_ORIGIN_PROD;
 
 const app = express();
-const PORT = process.env.PORT || 4200;
+const PORT = Number(process.env.PORT);
 
 connectToDatbase();
 
