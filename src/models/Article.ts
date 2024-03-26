@@ -6,6 +6,7 @@ const schema = new Schema({
   description: { type: String },
   thumbnail: { type: String },
   tag: { type: String },
+  path: { type: String },
   data: { type: String },
 });
 

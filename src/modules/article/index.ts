@@ -1,2 +1,3 @@
 export * from "./getArticles";
-export * from "./getArticle";
+export * from "./getArticleById";
+export * from "./getArticleByPath";
