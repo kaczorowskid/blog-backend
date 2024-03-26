@@ -1,7 +1,10 @@
-import { Request, Response } from "express";
 import { getArticleByIdService } from "./getArticleById.service";
+import { ExpressMiddleware } from "../../../utils/expressMiddleware.utils";
 
-export const getArticleById = async (req: Request, res: Response) => {
+export const getArticleById: ExpressMiddleware<{ id: string }> = async (
+  req,
+  res
+) => {
   try {
     const data = await getArticleByIdService(req.params.id);
 

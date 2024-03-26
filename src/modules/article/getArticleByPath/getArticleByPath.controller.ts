@@ -1,7 +1,11 @@
 import { Request, Response } from "express";
 import { getArticleByPathService } from "./getArticleByPath.service";
+import { ExpressMiddleware } from "../../../utils/expressMiddleware.utils";
 
-export const getArticleByPath = async (req: Request, res: Response) => {
+export const getArticleByPath: ExpressMiddleware<{ path: string }> = async (
+  req,
+  res
+) => {
   try {
     const data = await getArticleByPathService(req.params.path);
 
