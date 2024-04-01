@@ -5,16 +5,14 @@ import express from "express";
 import cors from "cors";
 import { articleRouter } from "./routes";
 import { connectToDatbase } from "./database";
-import { isEmptyString } from "./utils";
+import { checkEnvConfig } from "./utils";
 
-if (
-  isEmptyString(process.env.ENVIRONMENT) ||
-  isEmptyString(process.env.FRONTEND_URL_ORIGIN_DEV) ||
-  isEmptyString(process.env.FRONTEND_URL_ORIGIN_PROD) ||
-  isEmptyString(process.env.PORT)
-) {
-  throw new Error("Invalid .env config");
-}
+checkEnvConfig(
+  process.env.ENVIRONMENT,
+  process.env.FRONTEND_URL_ORIGIN_DEV,
+  process.env.FRONTEND_URL_ORIGIN_PROD,
+  process.env.PORT
+);
 
 const origin =
   process.env.ENVIRONMENT === "development"

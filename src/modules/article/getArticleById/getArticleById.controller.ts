@@ -1,5 +1,5 @@
+import { ExpressMiddleware } from "../../../utils";
 import { getArticleByIdService } from "./getArticleById.service";
-import { ExpressMiddleware } from "../../../utils/expressMiddleware.utils";
 
 export const getArticleById: ExpressMiddleware<{ id: string }> = async (
   req,

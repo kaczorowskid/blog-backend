@@ -1,6 +1,5 @@
-import { Request, Response } from "express";
+import { ExpressMiddleware } from "../../../utils";
 import { getArticleByPathService } from "./getArticleByPath.service";
-import { ExpressMiddleware } from "../../../utils/expressMiddleware.utils";
 
 export const getArticleByPath: ExpressMiddleware<{ path: string }> = async (
   req,
